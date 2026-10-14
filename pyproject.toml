@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "logsleuth"
+dynamic = ["version"]
+description = "Command-line tool that parses application logs and surfaces error patterns, bursts and activity."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Raji Oluwatofarati" }]
+keywords = ["logs", "log-analysis", "cli", "parser", "devops"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: System :: Logging",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["ruff>=0.5"]
+
+[project.scripts]
+logsleuth = "logsleuth.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "logsleuth.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]

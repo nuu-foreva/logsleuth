@@ -1,0 +1,43 @@
+# app.log - sample output from a fictional web service
+2026-10-13 08:00:01,120 INFO app: Service starting (version=2.4.1)
+2026-10-13 08:00:01,845 INFO db: Connected to postgres at 10.0.0.12:5432
+2026-10-13 08:00:02,310 DEBUG cache: Warmed 128 keys in 412ms
+2026-10-13 08:00:02,950 INFO app: Listening on port 8080
+2026-10-13 08:05:17,004 INFO auth: User login ok user=ada ip=192.168.1.20
+2026-10-13 08:12:44,531 INFO api: GET /orders 200 35ms
+2026-10-13 08:13:02,117 WARN api: Slow request GET /reports took 2310ms
+2026-10-13 08:20:19,660 ERROR auth: Failed login for user=admin ip=203.0.113.7
+2026-10-13 08:20:21,002 ERROR auth: Failed login for user=admin ip=203.0.113.7
+2026-10-13 08:20:23,870 ERROR auth: Failed login for user=root ip=203.0.113.7
+2026-10-13 08:20:26,114 WARNING auth: Rate limit applied to ip=203.0.113.7
+2026-10-13 08:41:09,238 INFO api: GET /orders/9912 200 41ms
+2026-10-13 08:55:30,481 DEBUG cache: Evicted 17 keys
+2026-10-13 09:03:12,775 INFO api: POST /orders 201 88ms
+2026-10-13 09:14:05,320 ERROR db: Connection timed out after 5000ms (host=10.0.0.12)
+2026-10-13 09:14:11,904 ERROR db: Connection timed out after 5000ms (host=10.0.0.12)
+2026-10-13 09:14:18,216 ERROR api: Unhandled exception in GET /orders
+Traceback (most recent call last):
+  File "app/views.py", line 88, in orders
+    rows = db.fetch_all(query)
+  File "app/db.py", line 41, in fetch_all
+    raise TimeoutError("database unavailable")
+TimeoutError: database unavailable
+2026-10-13 09:14:25,009 ERROR db: Connection timed out after 5000ms (host=10.0.0.12)
+2026-10-13 09:14:31,562 ERROR db: Connection timed out after 5000ms (host=10.0.0.12)
+2026-10-13 09:14:38,140 ERROR api: Unhandled exception in GET /orders
+Traceback (most recent call last):
+  File "app/views.py", line 88, in orders
+    rows = db.fetch_all(query)
+  File "app/db.py", line 41, in fetch_all
+    raise TimeoutError("database unavailable")
+TimeoutError: database unavailable
+2026-10-13 09:14:44,873 CRITICAL db: Primary database unreachable, failing over
+2026-10-13 09:15:02,411 INFO db: Failover complete, connected to 10.0.0.13:5432
+2026-10-13 09:40:55,090 INFO api: GET /orders 200 52ms
+2026-10-13 10:02:31,348 WARN api: Slow request GET /reports took 3105ms
+2026-10-13 10:30:12,667 INFO auth: User login ok user=grace ip=192.168.1.34
+2026-10-13 10:44:58,203 ERROR payments: Card declined for order=88231 code=51
+2026-10-13 10:45:40,516 ERROR payments: Card declined for order=88245 code=51
+2026-10-13 11:10:05,127 INFO api: GET /orders 200 39ms
+2026-13-45 99:00:00 ERROR app: this line has an impossible timestamp
+2026-10-13 11:30:00,000 INFO app: Nightly cleanup finished
