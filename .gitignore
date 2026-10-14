@@ -1,0 +1,19 @@
+   # Byte-compiled / cache
+   __pycache__/
+   *.py[cod]
+   .ruff_cache/
+   .pytest_cache/
+
+   # Packaging and build output
+   build/
+   dist/
+   *.egg-info/
+
+   # Virtual environments
+   .venv/
+   venv/
+
+   # Editors and OS files
+   .vscode/
+   .idea/
+   .DS_Store
